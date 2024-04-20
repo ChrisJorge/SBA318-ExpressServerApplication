@@ -5,7 +5,8 @@ const port = process.env.PORT || 3000;
 
 const flights = require('./data/flights.js')
 const airports = require('./data/airports.js')
-console.log(airports)
+const planes = require('./data/planes.js')
+console.log(planes)
 app.get('/', (req, res) => {
     res.send('Welcome to port 3000!!')
 })
