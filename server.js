@@ -4,7 +4,8 @@ const port = process.env.PORT || 3000;
 
 
 const flights = require('./data/flights.js')
-
+const airports = require('./data/airports.js')
+console.log(airports)
 app.get('/', (req, res) => {
     res.send('Welcome to port 3000!!')
 })
