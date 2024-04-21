@@ -11,7 +11,6 @@ router
             res.json(flights)
         })
 
-
        // Does not work
         // .post((req, res, next) => {
         //     console.log('sending data')
@@ -35,14 +34,14 @@ router
 
         router
             .route("/:id")
-            .get((req, res, next) => {
-                const flight = flights.find((flight) => flight.id == req.params.id);
-                if (flight) 
-                {
-                    res.json(flight);
-                }
-                    else next();
-            })
-
+                .get((req, res, next) => {
+                    const flight = flights.find((flight) => flight.id == req.params.id);
+                    if (flight) 
+                    {
+                        res.json(flight);
+                    }
+                        else next();
+                })
+                
 
 module.exports = router;
