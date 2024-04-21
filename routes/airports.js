@@ -10,4 +10,15 @@ router
         })
 
 
+    router
+        .route('/:name')
+            .get((req,res) => {
+                const airport = airports.find((airport) => airport.name == req.params.name);
+                if(airport)
+                {
+                    res.send(airport)
+                }
+            })
+        
+
 module.exports = router
