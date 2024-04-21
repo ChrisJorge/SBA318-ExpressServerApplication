@@ -57,15 +57,33 @@ router
                         }
                     }
                     return true
-                })
-                if(flight)
-                {
-                    res.json(flight);
-                }
-                else
-                {
-                    next()
-                }
+                    })
+                    if(flight)
+                    {
+                        res.json(flight);
+                    }
+                    else
+                    {
+                        next()
+                    }
+            })
+
+            .delete((req,res,next) => {
+                const flight = flights.find((flight, i) => {
+                    if(flight.id == req.params.id)
+                    {
+                        flights.splice(i,1);
+                        return true;
+                    }
+                });
+               if(flight)
+               {
+                res.json(flight)
+               }
+               else
+               {
+                next()
+               }
             })
                 
 
