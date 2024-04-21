@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000;
 
 const flights = require('./routes/flights.js')
 const airports = require('./routes/airports.js')
-const planes = require('./data/planes.js')
+const planes = require('./routes/planes.js')
 const bodyParser = require("body-parser");
 
 
@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/flights', flights)
 app.use('/api/airports', airports)
-
+app.use('/api/planes', planes)
 app.listen(port, () => {
     console.log(`Running on port ${port}`)
 })
