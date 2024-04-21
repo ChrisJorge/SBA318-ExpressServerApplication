@@ -10,6 +10,15 @@ router
         })
 
 
+router 
+        .route('/:name')
+        .get((req,res) => {
+            const plane = planes.find((plane) => plane.name == req.params.name);
+            if(plane)
+            {
+                res.send(plane)
+            }
+        })
 
 
 module.exports = router
