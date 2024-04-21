@@ -64,6 +64,24 @@ router
                     }
             })
 
+            .delete((req,res,next) => {
+                const airport = airports.find((airport, i) => {
+                    if(airport.name == req.params.name)
+                    {
+                        airports.splice(i,1);
+                        return true;
+                    }
+                });
+               if(airport)
+               {
+                res.json(airport)
+               }
+               else
+               {
+                next()
+               }
+            })
+
         
 
 module.exports = router
