@@ -13,7 +13,6 @@ router
 
        
         .post((req, res, next) => {
-            console.log('sending data')
             if (req.body.id && req.body.departing && req.body.arriving && req.body.time && req.body.cost)
             {
                 if (flights.find((flight) => flight.id == req.body.id)) {

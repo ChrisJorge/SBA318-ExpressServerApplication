@@ -10,6 +10,28 @@ router
             res.send(airports)
         })
 
+        .post((req, res, next) => {
+            if (req.body.name && req.body.location && req.body.numFlightsPerDay && req.body.companies)
+            {
+                if (airports.find((airport) => airport.name == req.body.name)) {
+                    next(error(409, "Airport Already Exists"));
+                }
+            
+                const airport = {
+                    name: req.body.name,
+                    location: req.body.location,
+                    numFlightsPerDay: req.body.numFlightsPerDay,
+                    companies: req.body.companies,
+                };
+            
+                airports.push(airport);
+                res.json(airports[airports.length - 1]);
+            }
+            else{
+                next(error(400,"Not Enough Information"))
+            }
+        });
+
 
     router
         .route('/:name')
