@@ -92,6 +92,11 @@ router
     .route('/view')
         .get((req,res,next) => {
             res.render('flights', {flights: flights});
-            // res.send('YEEEE')
         })
+
+router 
+    .route('/view/:id')
+    .get((req,res,next) => {
+        res.render("flight", {flight: flights[(req.params.id) - 1]})
+    })
 module.exports = router;
