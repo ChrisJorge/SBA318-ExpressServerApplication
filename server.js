@@ -14,9 +14,11 @@ app.engine('jsx', require('express-react-views').createEngine())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ extended: true }));
 
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.send('Welcome Please go to /api/flights to see the available flights, /api/airports for airports, and /api/planes for planes!')
+    // res.send('Welcome Please go to /api/flights to see the available flights, /api/airports for airports, and /api/planes for planes!')
+    res.render("home")
 })
 
 // app.get('/api/flights', (req,res) => {
@@ -32,9 +34,9 @@ app.get('/', (req, res) => {
 app.use('/api/flights', flights)
 app.use('/api/airports', airports)
 app.use('/api/planes', planes)
-// app.all('*', (req,res) => {
-//     res.redirect(302, "/")
-// })
+app.all('*', (req,res) => {
+    res.redirect(302, "/")
+})
 app.listen(port, () => {
     console.log(`Running on port ${port}`)
 })
