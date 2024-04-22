@@ -4,6 +4,9 @@ const router = express.Router();
 const flights = require('../data/flights.js')
 const error = require('../utilities/error.js')
 
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine())
+
 router
     .route('/')
 
@@ -85,5 +88,10 @@ router
                }
             })
                 
-
+router 
+    .route('/view')
+        .get((req,res,next) => {
+            res.render('flights', {flights: flights});
+            // res.send('YEEEE')
+        })
 module.exports = router;
