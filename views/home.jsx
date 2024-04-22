@@ -38,10 +38,10 @@ export default class home extends Component {
                         <h3>
                             <li>/api/flights/view</li>
                             <li>/api/flights/view/flightNumber</li>
-                            <li>/api/airports/view</li>
+                            {/* <li>/api/airports/view</li>
                             <li>/api/airports/view/airportName</li>
                             <li>/api/planes/view</li>
-                            <li>/api/planes/view/planeName</li>
+                            <li>/api/planes/view/planeName</li> */}
                         </h3>
                     </ul>
             </div>

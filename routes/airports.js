@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router()
+const app = express()
 const error = require('../utilities/error.js')
 
 const airports = require('../data/airports')
+
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine())
 
 router
     .route('/')
@@ -82,6 +86,20 @@ router
                }
             })
 
-        
+
+            // Wont load
+// router 
+//     .route('/view')
+//         .get((req,res,next) => {
+//             // res.render('airports', {airports: airports});
+//             res.send('Plane')
+//         })
+
+// router 
+//     .route('/view/:name')
+//     .get((req,res,next) => {
+//         const index = airports.indexOf(req.params.name)
+//         res.render("airport", {airport: airports[index]})
+//     })       
 
 module.exports = router
