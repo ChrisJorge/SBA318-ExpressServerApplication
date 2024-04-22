@@ -22,14 +22,14 @@ const planes = [
     },
     {
         name: '737-900ER',
-        passengers: 2,
+        passengers: 200,
         cost: 101_900_000,
         manufacturer: 'Boeing'
 
     },
     {
         name: '747-400F',
-        passengers: 2,
+        passengers: 225,
         cost: 100_000_000,
         manufacturer: 'Boeing'
 

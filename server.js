@@ -34,9 +34,9 @@ app.get('/', (req, res) => {
 app.use('/api/flights', flights)
 app.use('/api/airports', airports)
 app.use('/api/planes', planes)
-app.all('*', (req,res) => {
-    res.redirect(302, "/")
-})
+// app.all('*', (req,res) => {
+//     res.redirect(302, "/")
+// })
 
 app.use((req, res, next) => {
     next(error(404, "Resource Not Found"));
